@@ -226,7 +226,7 @@ input:focus {
 }
 
 .items-list {
-  max-height: 700px;
+  max-height: 900px;
   overflow-y: auto;
   margin-top: 10px;
 }
