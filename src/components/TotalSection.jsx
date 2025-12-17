@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TotalSection = ({ items, onResetAllPrices, onToggleAllItems }) => {
+export const TotalSection = ({ items, onResetAllPrices, onToggleAllItems }) => {
   const formatPrice = (price) => {
     const roundedPrice = Math.round(price * 100) / 100;
     let priceStr = roundedPrice.toString();
@@ -79,5 +79,3 @@ const TotalSection = ({ items, onResetAllPrices, onToggleAllItems }) => {
     </section>
   );
 };
-
-export default TotalSection;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ItemRow = ({ item, onUpdateItem, onDeleteItem }) => {
+export const ItemRow = ({ item, onUpdateItem, onDeleteItem }) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
   const [isActive, setIsActive] = useState(item.isActive !== undefined ? item.isActive : true);
@@ -212,5 +212,3 @@ const ItemRow = ({ item, onUpdateItem, onDeleteItem }) => {
     </div>
   );
 };
-
-export default ItemRow;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ItemForm = ({ onAddItem }) => {
+export const ItemForm = ({ onAddItem }) => {
   const [itemName, setItemName] = useState('');
   const [itemQuantity, setItemQuantity] = useState(1);
   const [itemPrice, setItemPrice] = useState('');
@@ -223,5 +223,3 @@ const ItemForm = ({ onAddItem }) => {
     </section>
   );
 };
-
-export default ItemForm;
