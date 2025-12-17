@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ItemForm from './components/ItemForm';
-import ItemList from './components/ItemList';
-import TotalSection from './components/TotalSection';
-import ThemeToggle from './components/ThemeToggle';
 import './App.css';
+import TotalSection from './components/TotalSection';
+import ItemForm from './components/ItemForm';
+import { ItemList } from './components/ItemList';
+import { ThemeToggle } from './components/ThemeToggle';
 
 function App() {
   const [items, setItems] = useState(() => {
