@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { ItemForm } from './components/ItemForm';
-import { ThemeToggle } from './components/ThemeToggle';
-import { TotalSection } from './components/TotalSection';
-import { ItemList } from './components/ItemList';
+import ItemForm from './components/ItemForm';
+import ItemList from './components/ItemList';
+import TotalSection from './components/TotalSection';
+import ThemeToggle from './components/ThemeToggle';
+import './App.css';
 
 function App() {
   const [items, setItems] = useState(() => {
     const savedItems = localStorage.getItem('items');
-    return savedItems ? JSON.parse(savedItems) : [];
+    if (savedItems) {
+      const parsedItems = JSON.parse(savedItems);
+      // Добавляем поле isActive для старых записей
+      return parsedItems.map(item => ({
+        ...item,
+        isActive: item.isActive !== undefined ? item.isActive : true
+      }));
+    }
+    return [];
   });
 
   const [isLightTheme, setIsLightTheme] = useState(() => {
@@ -28,10 +37,10 @@ function App() {
     setItems(prevItems => [...prevItems, newItem]);
   };
 
-  const handleUpdateItem = (id, newQuantity, newPrice) => {
+  const handleUpdateItem = (id, newQuantity, newPrice, isActive) => {
     setItems(prevItems =>
       prevItems.map(item =>
-        item.id === id ? { ...item, quantity: newQuantity, price: newPrice } : item
+        item.id === id ? { ...item, quantity: newQuantity, price: newPrice, isActive } : item
       )
     );
   };
@@ -47,6 +56,12 @@ function App() {
   const handleResetAllPrices = () => {
     setItems(prevItems =>
       prevItems.map(item => ({ ...item, price: 0 }))
+    );
+  };
+
+  const handleToggleAllItems = (activate) => {
+    setItems(prevItems =>
+      prevItems.map(item => ({ ...item, isActive: activate }))
     );
   };
 
@@ -79,6 +94,7 @@ function App() {
       <TotalSection
         items={items}
         onResetAllPrices={handleResetAllPrices}
+        onToggleAllItems={handleToggleAllItems}
       />
     </div>
   );

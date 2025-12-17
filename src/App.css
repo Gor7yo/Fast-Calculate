@@ -503,3 +503,160 @@ input:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-hover);
 }
+
+/* Добавьте эти стили в конец файла App.css */
+
+/* Стили для кнопки переключения слота */
+.slot-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.slot-toggle-btn.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.slot-toggle-btn.inactive {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.slot-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.slot-toggle-btn-form {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 5px;
+}
+
+.slot-toggle-btn-form.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.slot-toggle-btn-form.inactive {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.slot-toggle-btn-form:hover {
+  transform: translateY(-2px);
+}
+
+.slot-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.slot-toggle-preview {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-toggle-preview.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.slot-toggle-preview.inactive {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Стили для выключенных предметов */
+.item-row.inactive {
+  opacity: 0.7;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.item-name.inactive {
+  color: var(--text-secondary);
+}
+
+.item-price.inactive {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.inactive-badge {
+  color: var(--danger-color);
+  font-size: 0.8em;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+/* Стили для отключенных кнопок и инпутов */
+.item-qty-btn:disabled,
+.price-action-btn:disabled,
+.quantity-input:disabled,
+.price-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item-qty-btn:disabled:hover,
+.price-action-btn:disabled:hover {
+  background-color: var(--secondary-color);
+  transform: none;
+}
+
+/* Стили для статистики */
+.items-stats {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.active-items {
+  color: var(--success-color);
+}
+
+.inactive-items {
+  color: var(--danger-color);
+}
+
+/* Стили для кнопок в секции итогов */
+.total-actions {
+  margin-top: 20px;
+}
+
+.total-action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .total-action-buttons {
+    flex-direction: column;
+  }
+
+  .items-stats {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
